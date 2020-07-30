@@ -44,6 +44,7 @@ function datos(clima){
 
     var iconImg = document.getElementById('icon')
     
+    
     iconImg.src = `http://openweathermap.org/img/wn/${clima.current.weather[0].icon}@2x.png`
     
     temp.innerHTML =  (`${Math.round(clima.current.temp)}`) + '°C'
@@ -57,10 +58,18 @@ function datos(clima){
     diveDayTime.innerHTML = '<img id="tiempo" src= "dayTime.png">' + '&nbsp' + dayTimeH(date_sunset.getHours() - date_sunrise.getHours(), clima) + ":"  +  minutes(dayTimeMin(date_sunrise.getMinutes() + date_sunset.getMinutes(), clima)) + dayTimeMin(date_sunrise.getMinutes() + date_sunset.getMinutes(), clima) + pmAm(dayTimeH(date_sunset.getHours() - date_sunrise.getHours(), clima)) + '<br>' + 'DayTime'
 
 
-    mañana.innerHTML = sliderBuilder (now, 1, 1) + '<br>' + `${clima.daily[1].weather[0].main}`
-    pasado.innerHTML = sliderBuilder (now, 2, 2) + '<br>' + `${clima.daily[2].weather[0].main}`
-    pasado2.innerHTML = sliderBuilder (now, 3, 3) + '<br>' + `${clima.daily[3].weather[0].main}`
+    mañana.innerHTML = '<img id="icon1" src="">' + sliderBuilder (now, 1, 1) + '<br>' + `${clima.daily[1].weather[0].main}`
+    pasado.innerHTML = '<img id="icon2" src="">' + sliderBuilder (now, 2, 2) + '<br>' + `${clima.daily[2].weather[0].main}`
+    pasado2.innerHTML = '<img id="icon3" src="">' + sliderBuilder (now, 3, 3) + '<br>' + `${clima.daily[3].weather[0].main}`
     
+
+    var iconImg1 = document.getElementById('icon1')
+    var iconImg2 = document.getElementById('icon2')
+    var iconImg3 = document.getElementById('icon3')
+
+    iconImg1.src = `http://openweathermap.org/img/wn/${clima.daily[1].weather[0].icon}@2x.png`
+    iconImg2.src = `http://openweathermap.org/img/wn/${clima.daily[2].weather[0].icon}@2x.png`
+    iconImg3.src = `http://openweathermap.org/img/wn/${clima.daily[3].weather[0].icon}@2x.png`
 }
 
 function dateBuilder (d){
