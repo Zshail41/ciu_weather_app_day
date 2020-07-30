@@ -57,9 +57,9 @@ function datos(clima){
     diveDayTime.innerHTML = '<img id="tiempo" src= "dayTime.png">' + '&nbsp' + dayTimeH(date_sunset.getHours() - date_sunrise.getHours(), clima) + ":"  +  minutes(dayTimeMin(date_sunrise.getMinutes() + date_sunset.getMinutes(), clima)) + dayTimeMin(date_sunrise.getMinutes() + date_sunset.getMinutes(), clima) + pmAm(dayTimeH(date_sunset.getHours() - date_sunrise.getHours(), clima)) + '<br>' + 'DayTime'
 
 
-    mañana.innerHTML = sliderBuilder (now, 1, 1)
-    pasado.innerHTML = sliderBuilder (now, 2, 2)
-    pasado2.innerHTML = sliderBuilder (now, 3, 3)
+    mañana.innerHTML = sliderBuilder (now, 1, 1) + '<br>' + `${clima.daily[1].weather[0].main}`
+    pasado.innerHTML = sliderBuilder (now, 2, 2) + '<br>' + `${clima.daily[2].weather[0].main}`
+    pasado2.innerHTML = sliderBuilder (now, 3, 3) + '<br>' + `${clima.daily[3].weather[0].main}`
     
 }
 
